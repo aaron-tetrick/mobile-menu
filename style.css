@@ -1,3 +1,55 @@
-h1 {
-    color: red;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option {
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+}
+
+.list > li {
+    padding: .25rem;
+    font-size: 2.5em;
+    width: 100%;
+}
+
+.dropdown:focus > .option,
+.option:hover {
+    transition: 0.2s;
+    color: rgb(197, 68, 68);
 }

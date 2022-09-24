@@ -1,1 +1,6 @@
-console.log(1)
+document.addEventListener(e => {
+    
+
+
+
+})
