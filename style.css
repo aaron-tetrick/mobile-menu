@@ -27,10 +27,12 @@ nav {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
     opacity: 0;
     pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
 .option {
-    font-size: 2.5rem;
+    font-size: 50px;
     background: none;
     border: none;
     text-decoration: none;
@@ -38,8 +40,10 @@ nav {
 }
 
 .list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     list-style: none;
+    gap: 1.25rem;
 }
 
 .list > li {
@@ -48,8 +52,40 @@ nav {
     width: 100%;
 }
 
-.dropdown:focus > .option,
-.option:hover {
+.menu.active > .option,
+.option:hover,
+.list > li:hover {
     transition: 0.2s;
     color: rgb(197, 68, 68);
+    cursor: pointer;
+}
+
+.menu.active > .option + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(10px);
+    pointer-events: auto;
+}
+
+.option::before {
+    position: relative;
+    content: '\01F893';
+    top: 20px;
+}
+
+.menu.active > .option::before {
+    position: relative;
+    content: '\01F891';
+    top: -25px;
+}
+
+@media all and (max-width: 800px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (max-width: 500px) {
+    .list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }
